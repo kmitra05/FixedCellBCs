@@ -6,6 +6,7 @@ load xfpdata.mat
 tcfp=400; tyfp=400; tbfp=2;
 tred1=550;tfar1=550;
 tred2=550;tfar2=550;
+n=input('How many fluorescent proteins in this system?');
 lineages = {'B','Y','1','2','3','4'};
 lineagecomb={'B','Y','1','2','3','4','N'};
 lineagecomb=string(lineagecomb');
@@ -94,6 +95,9 @@ end
 end
 for p=1:size(xfpdata,2)
    tmp=xfpdata(p).fid;
+   if isempty(tmp)
+       continue
+   end
    k=cellstr(tmp);
    tmp=strrep(k,' ','');
    xfpdata(p).fid=tmp;

@@ -1,6 +1,6 @@
 % clear all
 % n=input('How many fluorescent proteins in this system?');
-% mergeMultipleMontageDirectories({'BCR1','BCR2'},{'BCR3','BCR4'},[7 7],(n+2),'testout');
+% mergeMultipleMontageDirectories({'BCBYR1','BCBYR2'},{'BCBYR3','BCBYR4'},[7 7],(n+2),'testout');
 % %
 % mkdir('mergenuclear')
 % for i=1:1:numel(dir('testout'))-2
@@ -116,7 +116,8 @@ function [mask2] = watershedSegmentation(mask_path, mask)
     %Erode the fused mask to find the centers of the nuclei to be segmented
     s = round(1.2*sqrt(mean(area))/pi);
     if isnan(s)
-        return;
+        mask2=mask;
+        return
     end
     nucmin = imerode(fusedMask,strel('disk',s));
     %Find the area considered to be the background of the fused mask
