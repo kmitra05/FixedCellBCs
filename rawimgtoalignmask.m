@@ -1,6 +1,11 @@
 % clear all
 % n=input('How many fluorescent proteins in this system?');
+<<<<<<< HEAD
+% mergeMultipleMontageDirectories({'BCBYR1','BCBYR2'},{'BCBYR3','BCBYR4'},[7 7],(n+2),'testout');
+% %
+=======
 % mergeMultipleMontageDirectories_KM({'M1R1','M1R2'},{'M1R3','M1R4'},[7 7],(n+2),'testout',1);
+>>>>>>> 31542edb53958c2ff272ce7f8a0dd469f480e271
 % mkdir('mergenuclear')
 % for i=1:1:numel(dir('testout'))-2
 %     FileTif=sprintf('merge_f%04d.tif',i);
@@ -116,7 +121,11 @@ function [mask2] = watershedSegmentation(mask_path, mask)
     s = round(1.2*sqrt(mean(area))/pi);
     if isnan(s)
         mask2=mask;
+<<<<<<< HEAD
+        return
+=======
         return;
+>>>>>>> 31542edb53958c2ff272ce7f8a0dd469f480e271
     end
     nucmin = imerode(fusedMask,strel('disk',s));
     %Find the area considered to be the background of the fused mask
